@@ -5,10 +5,7 @@ import { redisHealthIndicatorProvider } from './redis-health.provider';
 
 @Module({
   imports: [TerminusModule],
-  providers: [
-    RedisHealthIndicator,
-    redisHealthIndicatorProvider,
-  ],
-  exports: [RedisHealthIndicator]
+  providers: [RedisHealthIndicator, redisHealthIndicatorProvider],
+  exports: [RedisHealthIndicator],
 })
 export class RedisHealthModule {}

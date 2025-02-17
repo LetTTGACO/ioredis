@@ -1,6 +1,6 @@
 {
   "name": "@1874w/nestjs-ioredis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nest - a ioredis module (@ioredis). depend on @nestjs-modules/ioredis and support nestjs v11",
   "author": "LetTTGACO",
   "private": false,

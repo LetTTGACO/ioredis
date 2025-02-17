@@ -5,25 +5,34 @@
 </p>
 
 <p align="center">
-  A ioredis module for Nest framework (node.js) using <a href="https://github.com/luin/ioredis">ioredis</a> library
+  A ioredis module for Nest framework (node.js) using <a href="https://github.com/luin/ioredis">ioredis</a> library.
 </p>
+<p align="center">depend on <a href="https://github.com/nest-modules/ioredis">nest-modules/ioredis</a> and support nestjs v11</p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/org/nestjs-modules"><img src="https://img.shields.io/npm/v/@nestjs-modules/ioredis.svg" alt="NPM Version" /></a>
-  <a href="https://www.npmjs.com/org/nestjs-modules"><img src="https://img.shields.io/npm/l/@nestjs-modules/ioredis.svg" alt="Package License" /></a>
-  <a href="https://www.npmjs.com/org/nestjs-modules"><img src="https://img.shields.io/npm/dm/@nestjs-modules/ioredis.svg" alt="NPM Downloads" /></a>
+  <a href="https://www.npmjs.com/org/@1874w/nestjs-ioredis"><img src="https://img.shields.io/npm/v/@1874w/nestjs-ioredis.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/org/@1874w/nestjs-ioredis"><img src="https://img.shields.io/npm/l/@1874w/nestjs-ioredis.svg" alt="Package License" /></a>
+  <a href="https://www.npmjs.com/org/@1874w/nestjs-ioredis"><img src="https://img.shields.io/npm/dm/@1874w/nestjs-ioredis.svg" alt="NPM Downloads" /></a>
 </p>
+
+### Prerequisites
+This lib requires Node.js >=20, NestJS ^11.0.0, ioredis ^5.0.0.
 
 ### Installation
 
 #### with npm
 ```sh
-npm install --save @nestjs-modules/ioredis ioredis
+npm install --save @1874w/nestjs-ioredis ioredis
 ```
 
 #### with yarn
 ```sh
-yarn add @nestjs-modules/ioredis ioredis
+yarn add @1874w/nestjs-ioredis ioredis
+```
+
+#### with pnpm
+```sh
+pnpm i @1874w/nestjs-ioredis ioredis
 ```
 
 ### How to use?
@@ -34,7 +43,7 @@ yarn add @nestjs-modules/ioredis ioredis
 
 ```ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@nestjs-modules/ioredis';
+import { RedisModule } from '@1874w/nestjs-ioredis';
 import { AppController } from './app.controller';
 
 @Module({
@@ -42,6 +51,9 @@ import { AppController } from './app.controller';
     RedisModule.forRoot({
       type: 'single',
       url: 'redis://localhost:6379',
+      options: {
+        password: '123456'
+      },
     }),
   ],
   controllers: [AppController],
@@ -53,7 +65,7 @@ export class AppModule {}
 
 ```ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@nestjs-modules/ioredis';
+import { RedisModule } from '@1874w/nestjs-ioredis';
 import { AppController } from './app.controller';
 
 @Module({
@@ -88,7 +100,7 @@ export class AppModule {}
 
 ```ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@nestjs-modules/ioredis';
+import { RedisModule } from '@1874w/nestjs-ioredis';
 import { AppController } from './app.controller';
 
 @Module({
@@ -97,6 +109,9 @@ import { AppController } from './app.controller';
       useFactory: () => ({
         type: 'single',
         url: 'redis://localhost:6379',
+        options: {
+          password: '123456',
+        },
       }),
     }),
   ],
@@ -109,7 +124,7 @@ export class AppModule {}
 
 ```ts
 import { Module } from '@nestjs/common';
-import { RedisModule } from '@nestjs-modules/ioredis';
+import { RedisModule } from '@1874w/nestjs-ioredis';
 import { AppController } from './app.controller';
 
 @Module({
@@ -145,7 +160,7 @@ export class AppModule {}
 ```ts
 import Redis from 'ioredis';
 import { Controller, Get } from '@nestjs/common';
-import { InjectRedis } from '@nestjs-modules/ioredis';
+import { InjectRedis } from '@1874w/nestjs-ioredis';
 
 @Controller()
 export class AppController {
@@ -168,7 +183,7 @@ export class AppController {
 //health.module.ts
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
-import { RedisHealthModule, } from '@nestjs-modules/ioredis';
+import { RedisHealthModule, } from '@1874w/nestjs-ioredis';
 
 @Module({
   imports: [TerminusModule, RedisHealthModule],
